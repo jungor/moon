@@ -1,0 +1,114 @@
+<head>
+  <title>moon</title>
+</head>
+
+<body>
+  <div class="blank head"></div>
+  <div class="ui main">
+
+    {{> menu}}
+
+    <div class="ui nav me">
+      {{> loginButtons}}
+      {{ currentUser.profile.friends }}
+    </div>
+
+    <div class="ui nav friends">
+      <div class="ui divided list">
+        {{#each friends}}
+          {{> user}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="ui nav comments messages">
+    {{#each messages}}
+      {{> message}}
+    {{/each}}
+      <div class="ui form">
+        <div class="fields">
+          <div class="field record"><input type="text" name="text" placeholder="Say something..." autocomplete="off" /></div>
+          <div class="right floated compact ui send larger button"><i class="send outline icon"></i>Send</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui nav explore">
+      <div class="ui divided list">
+        {{#each users}}
+          {{> user}}
+        {{/each}}
+      </div>
+    </div>
+
+  </div>
+  <div class="blank foot"></div>
+</body>
+
+<template name="menu">
+  <div class="ui sticky fixed">
+    <div class="ui pointing fluid four item menu">
+      <a class="blue item me">
+        <i class="user icon"></i>me
+      </a>
+      <a class="active red item message">
+        <i class="users icon"></i>friends
+      </a>
+      <a class="active yellow item message">
+        <i class="mail icon"></i>messages
+      </a>
+      <a class="green item explore">
+        <i class="search icon"></i>explore
+      </a>
+    </div>
+  </div>
+</template>
+
+<template name="message">
+  <div class="comment-item">
+    <div class="comment {{#if guyIsCurrentUser }}right floated {{/if}}">
+      <a class="avatar {{#if guyIsCurrentUser }}right floated {{/if}}">
+        <img src="">
+      </a>
+      <div class="content {{#if guyIsCurrentUser }}right floated {{/if}}">
+        <p>
+          <a class="author {{#if guyIsCurrentUser }}right floated {{/if}}">{{from}}</a>
+          <div class="metadata {{#if guyIsCurrentUser }}right floated {{/if}}">
+            <span class="date">{{time}}</span>
+          </div>
+        </p>
+        <div class="text">
+          {{text}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui fitted divider"></div>
+</template>
+
+<template name="user">
+  <div class="item" data-name="{{username}}">
+    {{#if guyIsFriend username }}
+    <div class="right floated compact ui chat button">Chat</div>
+    <div class="right floated compact ui delete button">Delete</div>
+    {{else}}
+      <div class="right floated compact ui add button">Add</div>
+    {{/if}}
+    <img class="ui avatar image" src="">
+    <div class="content">
+      <div class="header">{{username}}</div>
+      {{profile}}
+    </div>
+  </div>
+  <div class="ui fitted divider"></div>
+</template>
+
+<!-- <template name="me">
+  <div class="item">
+    <img class="ui avatar image" src="">
+    <div class="content">
+      <div class="header"></div>
+      lalala
+    </div>
+  </div>
+</template> -->

@@ -1,0 +1,93 @@
+/* CSS declarations go here */
+
+
+p {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.blank.head {
+    position: relative;
+    width: 70%;
+    height: 45px;
+}
+
+.blank.foot {
+    position: relative;
+    width: 70%;
+    height: 50px;
+    z-index: -1;
+}
+
+.right.floated {
+    float: right;
+}
+
+.ui.comments .comment .avatar.right.floated {
+    float: right;
+}
+
+.left.floated {
+    float: left;
+}
+
+.main{
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+.ui.sticky.fixed {
+    width: 70%;
+    top: 0;
+
+}
+
+.ui.messages {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.ui.comments .comment {
+    max-width: 60%;
+}
+
+.ui.comments .comment-item {
+    overflow: hidden;
+    width: 100%;
+}
+
+.ui.form {
+    position: fixed;
+    bottom: 1px;
+    width: 70%;
+    overflow: hidden;
+    background-color: #FFF
+}
+
+.ui.comments .comment-item .content {
+    max-width: 80%;
+}
+
+
+.record {
+    width: 80%;
+}
+
+@media screen and (max-width: 640px) {
+    .ui.sticky.fixed {
+        width: 100%;
+        top: 0;
+    }
+    .main {
+        width: 100%;
+    }
+    .ui.form {
+        width: 100%;
+    }
+    .record {
+        width: 65%;
+    }
+}
